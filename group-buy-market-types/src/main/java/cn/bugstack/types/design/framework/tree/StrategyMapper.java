@@ -8,5 +8,5 @@ package cn.bugstack.types.design.framework.tree;
  @date 2025/10/2 下午11:09 */
 public interface StrategyMapper<T,D,R> {
 
-    StrategyHandler<T,D,R> get(T requestParameter, D dynamicContext) throws Exception;
+    StrategyHandler<T, D, R> get(T requestParameter, D dynamicContext) throws Exception;
 }
