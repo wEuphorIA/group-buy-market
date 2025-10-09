@@ -12,6 +12,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+
 /**
  @author Euphoria
  @version 1.0
@@ -36,8 +38,11 @@ public class DefaultActivityStrategyFactory {
     @AllArgsConstructor
     @NoArgsConstructor
     public static class DynamicContext{
+
         private GroupBuyActivityDiscountVO groupBuyActivityDiscountVO;
 
         private SkuVO skuVO;
+
+        private BigDecimal deductionPrice;
     }
 }
