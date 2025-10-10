@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 /**
  @author Euphoria
  @version 1.0
- @description: TODO
+ @description: 首页营销服务
  @date 2025/10/3 下午1:48 */
 @Service
 public class IndexGroupBuyMarketServiceImpl implements IIndexGroupBuyMarketService{

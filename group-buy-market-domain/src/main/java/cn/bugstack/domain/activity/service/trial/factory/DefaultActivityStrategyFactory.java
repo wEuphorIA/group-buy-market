@@ -17,9 +17,8 @@ import java.math.BigDecimal;
 /**
  @author Euphoria
  @version 1.0
- @description: TODO
+ @description: 活动策略工厂
  @date 2025/10/3 上午11:49 */
-//活动策略工厂
 @Service
 public class DefaultActivityStrategyFactory {
 
@@ -29,7 +28,7 @@ public class DefaultActivityStrategyFactory {
         this.rootNode = rootNode;
     }
 
-    public StrategyHandler<MarketProductEntity, DynamicContext, TrialBalanceEntity> strategyHandler(){
+    public StrategyHandler<MarketProductEntity, DynamicContext, TrialBalanceEntity> strategyHandler() {
         return rootNode;
     }
 
@@ -37,12 +36,22 @@ public class DefaultActivityStrategyFactory {
     @Builder
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class DynamicContext{
+    public static class DynamicContext {
 
+        // 活动折扣信息
         private GroupBuyActivityDiscountVO groupBuyActivityDiscountVO;
 
+        // 商品SKU信息
         private SkuVO skuVO;
 
+        // 折扣价格
         private BigDecimal deductionPrice;
+
+        // 活动可见性限制
+        private boolean visible;
+
+        // 活动
+        private boolean enable;
+
     }
 }

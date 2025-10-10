@@ -39,6 +39,9 @@ public class MarketNode extends AbstractGroupBuyMarketSupport<MarketProductEntit
     @Resource
     private ErrorNode errorNode;
 
+    @Resource
+    private TagNode tagNode;
+
     /**
      * <a href="https://bugstack.cn/md/road-map/spring-dependency-injection.html">Spring 注入详细说明</a>
      */
@@ -102,6 +105,6 @@ public class MarketNode extends AbstractGroupBuyMarketSupport<MarketProductEntit
             return errorNode;
         }
 
-        return endNode;
+        return tagNode;
     }
 }

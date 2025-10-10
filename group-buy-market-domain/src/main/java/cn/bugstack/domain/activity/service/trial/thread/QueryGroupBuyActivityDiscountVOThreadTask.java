@@ -9,7 +9,7 @@ import java.util.concurrent.Callable;
 /**
  @author Euphoria
  @version 1.0
- @description: TODO
+ @description: 查询营销配置任务
  @date 2025/10/8 下午8:45 */
 public class QueryGroupBuyActivityDiscountVOThreadTask implements Callable<GroupBuyActivityDiscountVO> {
 

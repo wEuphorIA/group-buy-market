@@ -11,7 +11,7 @@ import java.util.concurrent.TimeoutException;
 /**
  @author Euphoria
  @version 1.0
- @description: TODO
+ @description: 抽象的拼团营销支撑类
  @date 2025/10/3 上午11:45 */
 public abstract class AbstractGroupBuyMarketSupport<MarketProductEntity,DynamicContext,TrialBalanceEntity> extends AbstractMultiThreadStrategyRouter<MarketProductEntity,DynamicContext,TrialBalanceEntity> {
 

@@ -13,6 +13,8 @@ import cn.bugstack.infrastructure.dao.po.GroupBuyActivity;
 import cn.bugstack.infrastructure.dao.po.GroupBuyDiscount;
 import cn.bugstack.infrastructure.dao.po.SCSkuActivity;
 import cn.bugstack.infrastructure.dao.po.Sku;
+import cn.bugstack.infrastructure.redis.IRedisService;
+import org.redisson.api.RBitSet;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -20,13 +22,14 @@ import javax.annotation.Resource;
 /**
  @author Euphoria
  @version 1.0
- @description: TODO
+ @description: 活动仓储
  @date 2025/10/8 下午9:01 */
 @Repository
 public class ActivityRepository implements IActivityRepository {
 
     @Resource
     private IGroupBuyActivityDao groupBuyActivityDao;
+
     @Resource
     private IGroupBuyDiscountDao groupBuyDiscountDao;
 
@@ -36,12 +39,15 @@ public class ActivityRepository implements IActivityRepository {
     @Resource
     private ISCSkuActivityDao iscSkuActivityDao;
 
+    @Resource
+    private IRedisService redisService;
+
     @Override
     public GroupBuyActivityDiscountVO queryGroupBuyActivityDiscountVO(Long activityId) {
 
         GroupBuyActivity groupBuyActivityRes = groupBuyActivityDao.queryValidGroupBuyActivityId(activityId);
-
         if (groupBuyActivityRes == null) return null;
+
         String discountId = groupBuyActivityRes.getDiscountId();
 
         GroupBuyDiscount groupBuyDiscountRes = groupBuyDiscountDao.queryGroupBuyActivityDiscountByDiscountId(discountId);
@@ -102,5 +108,13 @@ public class ActivityRepository implements IActivityRepository {
                 .chanel(scSkuActivity.getChannel())
                 .goodsId(scSkuActivity.getGoodsId())
                 .build();
+    }
+
+    @Override
+    public boolean isTagCrowRange(String tagId, String userId) {
+        RBitSet bitSet = redisService.getBitSet(tagId);
+        if (!bitSet.isExists()) return true;
+
+        return bitSet.get(redisService.getIndexFromUserId(userId));
     }
 }
