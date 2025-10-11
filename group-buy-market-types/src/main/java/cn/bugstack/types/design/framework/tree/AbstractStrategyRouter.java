@@ -8,7 +8,7 @@ import java.util.concurrent.ExecutionException;
 /**
  @author Euphoria
  @version 1.0
- @description: TODO
+ @description: 策略路由抽象类
  @date 2025/10/3 上午11:28 */
 public abstract class AbstractStrategyRouter<T, D, R> implements StrategyMapper<T, D, R> ,StrategyHandler<T, D, R>  {
 

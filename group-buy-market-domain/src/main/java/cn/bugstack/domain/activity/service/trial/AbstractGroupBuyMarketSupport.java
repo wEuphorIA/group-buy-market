@@ -2,7 +2,7 @@ package cn.bugstack.domain.activity.service.trial;
 
 import cn.bugstack.domain.activity.adapter.repository.IActivityRepository;
 import cn.bugstack.types.design.framework.tree.AbstractMultiThreadStrategyRouter;
-import cn.bugstack.types.design.framework.tree.AbstractStrategyRouter;
+// import cn.bugstack.types.design.framework.tree.AbstractStrategyRouter;
 
 import javax.annotation.Resource;
 import java.util.concurrent.ExecutionException;

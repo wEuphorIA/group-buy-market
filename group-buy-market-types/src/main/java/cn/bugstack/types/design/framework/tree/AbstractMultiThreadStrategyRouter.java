@@ -9,7 +9,7 @@ import java.util.concurrent.TimeoutException;
 /**
  @author Euphoria
  @version 1.0
- @description: TODO
+ @description: 异步资源加载策略
  @date 2025/10/7 下午9:17 */
 public abstract class AbstractMultiThreadStrategyRouter<T, D, R> implements StrategyMapper<T, D, R>, StrategyHandler<T, D, R> {
 
