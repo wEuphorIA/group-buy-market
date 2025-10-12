@@ -41,6 +41,12 @@ public class SwitchNode extends AbstractGroupBuyMarketSupport<MarketProductEntit
             throw new AppException(ResponseCode.E0004.getCode(), ResponseCode.E0004.getInfo());
         }
 
+        // 白名单判断
+        if (!repository.isWhite(userId)){
+            log.info("拼团活动切量拦截 {}", userId);
+            throw new AppException(ResponseCode.E0010.getCode(), ResponseCode.E0010.getInfo());
+        }
+
         return router(requestParameter, dynamicContext);
     }
 

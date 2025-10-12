@@ -1,7 +1,12 @@
 package cn.bugstack.infrastructure.dcc;
 
 import cn.bugstack.types.annoations.DCCValue;
+import cn.bugstack.types.common.Constants;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  @author Euphoria
@@ -17,6 +22,9 @@ public class DCCService {
     @DCCValue("cutRange:100")
     private String cutRange;
 
+    @DCCValue("whiteList:xiaofuge,liergou")
+    private String whiteList;
+
     public boolean isDowngradeSwitch(){
         return "1".equals(downgradeSwitch);
     }
@@ -28,5 +36,13 @@ public class DCCService {
             return true;
         }
         return false;
+    }
+
+    public boolean isWhiteLsit(String userId){
+        if(StringUtils.isBlank(whiteList)){
+            return false;
+        }
+        List<String> list = Arrays.asList(whiteList.split(Constants.SPLIT));
+        return list.contains(userId);
     }
 }
