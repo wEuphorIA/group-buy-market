@@ -33,4 +33,9 @@ public class MarketProductEntity {
      */
     private String channel;
 
+    /**
+      活动id
+     */
+    private Long activityId;
+
 }
