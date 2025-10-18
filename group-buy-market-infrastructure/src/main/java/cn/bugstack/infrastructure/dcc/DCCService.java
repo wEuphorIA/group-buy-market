@@ -22,7 +22,7 @@ public class DCCService {
     @DCCValue("cutRange:100")
     private String cutRange;
 
-    @DCCValue("whiteList:xiaofuge,liergou")
+    // @DCCValue("whiteList:xiaofuge,liergou")
     private String whiteList;
 
     public boolean isDowngradeSwitch(){
@@ -39,10 +39,11 @@ public class DCCService {
     }
 
     public boolean isWhiteLsit(String userId){
-        if(StringUtils.isBlank(whiteList)){
-            return false;
-        }
-        List<String> list = Arrays.asList(whiteList.split(Constants.SPLIT));
-        return list.contains(userId);
+        // if(StringUtils.isBlank(whiteList)){
+        //     return false;
+        // }
+        // List<String> list = Arrays.asList(whiteList.split(Constants.SPLIT));
+        // return list.contains(userId);
+        return true;
     }
 }
