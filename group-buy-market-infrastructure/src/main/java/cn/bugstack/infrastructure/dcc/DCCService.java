@@ -22,14 +22,17 @@ public class DCCService {
     @DCCValue("cutRange:100")
     private String cutRange;
 
+    @DCCValue("scBlacklist:s02c02")
+    private String scBlacklist;
+
     // @DCCValue("whiteList:xiaofuge,liergou")
     private String whiteList;
 
-    public boolean isDowngradeSwitch(){
+    public boolean isDowngradeSwitch() {
         return "1".equals(downgradeSwitch);
     }
 
-    public boolean isCutRange(String userId){
+    public boolean isCutRange(String userId) {
         int hashcode = Math.abs(userId.hashCode());
         int lastTwoDigits = hashcode % 100;
         if (lastTwoDigits <= Integer.parseInt(cutRange)) {
@@ -38,12 +41,17 @@ public class DCCService {
         return false;
     }
 
-    public boolean isWhiteLsit(String userId){
+    public boolean isWhiteLsit(String userId) {
         // if(StringUtils.isBlank(whiteList)){
         //     return false;
         // }
         // List<String> list = Arrays.asList(whiteList.split(Constants.SPLIT));
         // return list.contains(userId);
         return true;
+    }
+
+    public boolean isSCBlackIntercept(String source, String channel) {
+        List<String> list = Arrays.asList(scBlacklist.split(Constants.SPLIT));
+        return list.contains(source + channel);
     }
 }
