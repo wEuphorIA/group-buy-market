@@ -10,6 +10,17 @@
     <artifactId>group-buy-market-infrastructure</artifactId>
 
     <dependencies>
+
+        <!-- http 接口框架 https://bugstack.cn/md/road-map/http.html -->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp-sse</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>logging-interceptor</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
