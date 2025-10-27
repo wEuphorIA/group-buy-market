@@ -45,7 +45,7 @@ logging:
 redis:
   sdk:
     config:
-      host: 192.168.100.168
+      host: 192.168.101.68
       port: 6379
       pool-size: 10
       min-idle-size: 5
@@ -55,5 +55,5 @@ redis:
       retry-interval: 1000
       ping-interval: 60000
       keep-alive: true
-      password: 123456
+      password: redis
 
